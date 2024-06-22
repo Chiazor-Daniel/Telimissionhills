@@ -1,6 +1,53 @@
 import Breadcumb from "@/src/components/Breadcumb";
 import Layout from "@/src/layout/Layout";
+import Swal from 'sweetalert2';
+import { useState } from "react";
+
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    web: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      icon: 'info',
+      title: 'Do you want to send the message?',
+      showCancelButton: true,
+      confirmButtonText: 'Send',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent!',
+          text: 'Your message has been sent successfully.',
+        });
+
+        // Clear the form inputs
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          web: "",
+          message: "",
+        });
+      }
+    });
+  };
+
   return (
     <Layout>
       <Breadcumb pageName={"Contact Us"} contact={'contact'}/>
@@ -16,15 +63,20 @@ const Contact = () => {
                   <h3>Get In Touch</h3>
                 </div>
                 <form
-                  onSubmit={(e) => e.preventDefault()}
-                  action="#"
+                  onSubmit={handleSubmit}
                   method="POST"
                   id="dreamit-form"
                 >
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form_box mb-30">
-                        <input type="text" name="name" placeholder="Name" />
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Name"
+                          value={formData.name}
+                          onChange={handleChange}
+                        />
                       </div>
                     </div>
                     <div className="col-lg-6">
@@ -33,6 +85,8 @@ const Contact = () => {
                           type="email"
                           name="email"
                           placeholder="Email Address"
+                          value={formData.email}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -42,12 +96,20 @@ const Contact = () => {
                           type="text"
                           name="phone"
                           placeholder="Phone Number"
+                          value={formData.phone}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form_box mb-30">
-                        <input type="text" name="web" placeholder="Website" />
+                        <input
+                          type="text"
+                          name="web"
+                          placeholder="Website"
+                          value={formData.web}
+                          onChange={handleChange}
+                        />
                       </div>
                     </div>
                     <div className="col-lg-12">
@@ -58,7 +120,8 @@ const Contact = () => {
                           cols={30}
                           rows={10}
                           placeholder="Your Message"
-                          defaultValue={""}
+                          value={formData.message}
+                          onChange={handleChange}
                         />
                       </div>
                       <div className="quote_button">
