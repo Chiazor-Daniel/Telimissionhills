@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css'; // Import CSS for react-intl-tel-input
 
-const PhoneInputComponent = () => {
+const PhoneInputComponent = ({ setPhone }) => {
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -13,6 +13,14 @@ const PhoneInputComponent = () => {
       });
     }
   }, []);
+
+  const handlePhoneChange = (isValid, value, countryData) => {
+    if (isValid) {
+      setPhone(value);
+    } else {
+      setPhone('');
+    }
+  };
 
   return (
     <div className="col-lg-12">
@@ -25,6 +33,7 @@ const PhoneInputComponent = () => {
           preferredCountries={['in']}
           defaultValue="+91"
           inputRef={inputRef}
+          onPhoneNumberChange={handlePhoneChange}
         />
       </div>
     </div>

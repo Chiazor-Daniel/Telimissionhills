@@ -3,6 +3,7 @@ import { Stepper } from 'react-dynamic-stepper';
 import { AiOutlineFileAdd } from 'react-icons/ai';
 import { RiExchangeDollarLine } from 'react-icons/ri';
 import { IoDocumentTextOutline } from 'react-icons/io5';
+import Swal from 'sweetalert2';
 import PhoneInputComponent from './inputPhone';
 
 const FormInput = ({ type, id, name, value, onChange, label }) => (
@@ -33,6 +34,10 @@ const StepperComp = () => {
     const stepperRef = useRef(null);
     const [selectedTransferMethod, setSelectedTransferMethod] = useState('');
     const [whatHappen, setWhatHappen] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const handleTransferMethodChange = (e) => {
         setSelectedTransferMethod(e.target.value);
@@ -165,7 +170,7 @@ const StepperComp = () => {
                             name="message"
                             onChange={(e) => setWhatHappen(e.target.value)}
                             id="message"
-                            style={{borderRadius: '20px'}}
+                            style={{ borderRadius: '20px' }}
                             cols={30}
                             rows={10}
                             placeholder="This is What Happened..."
@@ -188,12 +193,24 @@ const StepperComp = () => {
                     <div className='row'>
                         <div className="col-lg-6">
                             <div className="form_box mb-20">
-                                <input type="text" name="firstName" placeholder="First Name*" style={{borderRadius: '20px'}} />
+                                <input 
+                                    type="text" 
+                                    name="firstName" 
+                                    placeholder="First Name*" 
+                                    style={{ borderRadius: '20px' }}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                />
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <div className="form_box mb-20">
-                                <input type="text" name="lastName" placeholder="Last Name*" style={{borderRadius: '20px'}}/>
+                                <input 
+                                    type="text" 
+                                    name="lastName" 
+                                    placeholder="Last Name*" 
+                                    style={{ borderRadius: '20px' }}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                />
                             </div>
                         </div>
                         <div className="col-lg-6">
@@ -201,25 +218,46 @@ const StepperComp = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    style={{borderRadius: '20px'}}
+                                    style={{ borderRadius: '20px' }}
                                     placeholder="Your E-Mail*"
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                         </div>
                         <div className='col-6'>
-                            <PhoneInputComponent />
+                            <PhoneInputComponent setPhone={setPhone} />
                         </div>
+                       
                     </div>
                 </div>
             ),
-            isError: !acceptThirdTerms.checked && acceptThirdTerms.touched,
-            isComplete: acceptThirdTerms.checked,
+            isError: (!firstName || !lastName || !email || !phone),
+            isComplete: (firstName && lastName && email && phone ),
         },
     ];
 
     const submitStepper = () => {
-        console.log('submitted');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Do you want to submit the form?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, submit it!',
+            cancelButtonText: 'No, cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Form has been successfully submitted.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    console.log('submitted');
+                });
+            }
+        });
     };
+    
 
     return (
         <div className="container">
