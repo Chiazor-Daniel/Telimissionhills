@@ -4,7 +4,6 @@ import { AiOutlineFileAdd } from 'react-icons/ai';
 import { RiExchangeDollarLine } from 'react-icons/ri';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import Swal from 'sweetalert2';
-import PhoneInputComponent from './inputPhone';
 
 const FormInput = ({ type, id, name, value, onChange, label }) => (
     <>
@@ -224,9 +223,7 @@ const StepperComp = () => {
                                 />
                             </div>
                         </div>
-                        <div className='col-6'>
-                            <PhoneInputComponent setPhone={setPhone} />
-                        </div>
+                      
                        
                     </div>
                 </div>

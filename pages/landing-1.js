@@ -19,17 +19,7 @@ const Landing1 = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-12">
-              <div className="slider-content">
-                <h1> The Financial </h1>
-                <h1>
-                  {" "}
-                  Planning <span>Guide</span>{" "}
-                </h1>
-                <p>
-                  Without Consulting Plans, Plans not Growing fashion user
-                  friendly architectures synergistic resources.
-                </p>
-              </div>
+             
               <div className="slider-button mt-5">
                 <Link legacyBehavior href="/service">
                   <a>

@@ -15,7 +15,7 @@ const Layout = ({ children, header, footer }) => {
 
   return (
     <Fragment>
-      <TawkToScript />
+      
       <ImageView />
       <VideoPopup />
       <Header header={header} />

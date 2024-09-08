@@ -14,8 +14,8 @@ const MobileMenu = () => {
   const activeSub = (value) => (value === subMenus ? { display: "block" } : { display: "none" });
 
   return (
-    <div className="mobile-menu-area d-sm-block d-md-block d-lg-none header____">
-      <div className="mobile-menu mean-container">
+    <div className="mobile-menu-area d-sm-block d-md-block d-lg-none header____" style={{background: 'black'}}>
+      <div className="mobile-menu mean-container" style={{background: 'black'}}>
         <div className="mean-bar">
           <a
             href="#nav"

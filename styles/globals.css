@@ -113,3 +113,16 @@ li.monthdate.current_date {
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+.icon-hover {
+  color: #ff3b00; /* Default color */
+  transition: color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .swiper-slide img {
+    width: 300px !important;
+    height: 300px !important;
+    margin: auto;
+    margin-left: 30px;
+    margin-top: 50px;
+  }
+}
