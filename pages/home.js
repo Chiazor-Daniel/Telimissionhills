@@ -243,7 +243,7 @@ const Index = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12">
               <div className="dreamit-about-thumb">
-                <img src="banner.jpeg" alt style={{width: '600px', borderRadius: '20px'}}/>
+                <img src="banner.jpeg" alt style={{maxWidth: '600px', borderRadius: '20px', objectFit: 'cover'}}/>
                 {/* about-shape */}
                 <div className="about-shape-thumb1 bounce-animate2">
                   <img src="assets/images/about/about-shape2.png" alt />

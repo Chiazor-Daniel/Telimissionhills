@@ -5,38 +5,7 @@ const Footer1 = () => {
     <div className="footer-middle">
       <div className="container">
         <div className="subscribe-area">
-          <div className="row ">
-            <div className="col-lg-6 col-md-6">
-              <div className="subscribe-title">
-                <h1>Subscribe to our Newsletter</h1>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                action="https://formspree.io/f/myyleorq"
-                method="POST"
-                id="dreamit-form"
-              >
-                <div className="subscribe_form">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="form-control"
-                    required=""
-                    data-error="Please enter your email"
-                    placeholder="Enter Your Email"
-                  />
-                  <button type="submit" className="btn">
-                    Subscribe
-                  </button>
-                </div>
-                <div className="subscribe_form_send"></div>
-              </form>
-              <div id="status" />
-            </div>
-          </div>
+         
           <div className="subscribe-shape">
             <div className="subscribe-thumb bounce-animate5">
               <img src="assets/images/resource/small-dot.png" alt="" />

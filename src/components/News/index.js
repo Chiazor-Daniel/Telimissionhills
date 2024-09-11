@@ -40,7 +40,7 @@ const NewsArticle = ({ article }) => (
         </div>
         <div className="em-blog-title">
           <h2>
-            <Link href="/blog-details" legacyBehavior>
+            <Link href="" legacyBehavior>
               <a> {article.title} </a>
             </Link>
           </h2>
@@ -54,7 +54,7 @@ const NewsArticle = ({ article }) => (
           </div>
         </div>
         <div className="blog-button">
-          <Link href="/blog-details" legacyBehavior>
+          <Link href="" legacyBehavior>
             <> Read More <i className="bi bi-plus" /> </>
           </Link>
         </div>
