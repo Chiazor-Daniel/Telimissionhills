@@ -16,14 +16,19 @@ const DefaultHeader = () => {
                 <a className="logo_img" title="consen">
                   <div style={{padding: '0px', backgroundColor: '', width: '300px', paddingRight: '20px',paddingLeft: '30px', height: '100px', position: 'absolute', top: -40
                   , left: -150, display: 'flex', gap: '20px', alignItems: 'center', borderRadius: '50px', display: 'flex'}}>
-                    {/* <img src="assets/images/logo6.png" style={{width: '100%'}} alt="logo" /> */}
-                    {/* <h1 className="" style={{fontSize: '1.7rem', color: 'white'}}>Margin Watchers</h1> */}
+                    <div></div>
+                    <div style={{background: '', padding: '10px', width: 'fit', borderRadius: '50%', height: 'fit', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <img src="lg.png" style={{width: '100px', height: ''}} alt="logo" />
+
+                    </div>
+                    <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>TellimissionHills</h1>
                   </div>
                 </a>
               </Link>
               <Link legacyBehavior href="/">
                 <a className="main_sticky" title="consen" style={{padding: '10px'}}>
-                  <img src="assets/images/logo6.png" style={{width: '150px'}} alt="logo" />
+                <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>TellimissionHills</h1>
+                  
                 </a>
               </Link>
             </div>
@@ -37,7 +42,7 @@ const DefaultHeader = () => {
             </nav>
           </div>
         </div>
-        <ModalForm showForm={handleShow} handleToggle={()=>setHandleShow(!handleShow)}/>
+       
       </div>
     </div>
   );

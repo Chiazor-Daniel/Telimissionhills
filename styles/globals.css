@@ -4,6 +4,7 @@
 @import "swiper/css/scrollbar";
 @import "swiper/css/effect-fade";
 @import "swiper/css/effect-creative";
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 
 /* image popup */
 img.mfp-img {
@@ -125,4 +126,9 @@ li.monthdate.current_date {
     margin-left: 30px;
     margin-top: 50px;
   }
+}
+.head{
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

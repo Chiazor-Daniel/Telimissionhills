@@ -8,7 +8,7 @@ const E404 = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="error-thumb">
-                <img src="assets/images/resource/404.png" alt />
+                {/* <img src="assets/images/resource/404.png" alt /> */}
               </div>
               <div className="error-content">
                 <h2>
@@ -26,7 +26,7 @@ const E404 = () => {
                 </button>
               </div>
               <div className="error-button">
-                <Link legacyBehavior href="/">
+                <Link legacyBehavior href="/home">
                   <a>
                     <i className="fas fa-home" /> Back To Home
                   </a>

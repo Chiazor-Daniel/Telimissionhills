@@ -145,7 +145,7 @@ const TableOfContents = () => {
       top: '48px',
       maxHeight: 'calc(100vh - 70px)',
       overflow: 'auto',
-      display: window.innerWidth <= 900 ? 'none' : 'block'
+      // display: window.innerWidth <= 900 ? 'none' : 'block'
     }}>
       <p style={{ color: 'gray', margin: '0 auto', display: 'flex', padding: ' 10px', fontSize: '1.2rem', fontWeight: 'bold' }}>Table Of Content</p>
 

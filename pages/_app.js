@@ -11,8 +11,8 @@ const App = ({ Component, pageProps }) => {
   return (
     <Fragment>
       <ConsenHead />
-      <Preloader />
-      {!loding && <Component {...pageProps} />}
+      {/* <Preloader /> */}
+      <Component {...pageProps} />
     </Fragment>
   );
 };

@@ -78,9 +78,7 @@ const LawNewsSection = () => {
           </div>
           <div className="col-lg-5 col-md-4">
             <div className="consen-button text-right">
-              <Link href="/blog-grid">
-                <> View all Articles <i className="bi bi-plus" /> </>
-              </Link>
+           
             </div>
           </div>
         </div>

@@ -1,185 +1,312 @@
-import Breadcumb from "@/src/components/Breadcumb";
-import { useState } from "react";
-import LogoSlider from "@/src/components/LogoSlider";
-import ProgressBar from "@/src/components/ProgressBar";
-import ModalForm from "@/src/components/modal";
+import React from 'react';
 import Layout from "@/src/layout/Layout";
-import Marquee from "react-fast-marquee";
-import Link from "next/link";
-import TBH from "@/src/components/tbh/tbh";
+import ServicesSection from "@/src/components/service";
+import { FaBalanceScale, FaGavel, FaLightbulb, FaShip, FaHome, FaVoteYea, FaHeartBroken, FaBook, FaDollarSign, FaUsers, FaHandshake, FaFileContract, FaChartLine } from 'react-icons/fa';
+
+const telimissionHillsData = {
+  companyName: "TelimissionHills & Co",
+
+  aboutUs: {
+    description: "TelimissionHills & Co is a seasoned Law Firm of Legal Practitioners, property consultants and allied services.",
+    partners: {
+      count: 3,
+      experience: "over 30 years post-call"
+    },
+    expertise: [
+      "corporate Law practice",
+      "property consultancy",
+      "Debt Recovery",
+      "Arbitration",
+      "Family Law",
+      "Maritime Law",
+      "Soliciting",
+      "Legal Research",
+      "Corporate Consultants",
+      "general litigation (commercial law & Labour law)",
+      "Alternative Dispute Resolution (ADR)",
+      "Legal Drafting (MOUs Leases, Contracts, Agreements and Conveyance)",
+      "time-tested legal opinions in complex and not so complex areas of Law"
+    ]
+  },
+
+  missionStatement: {
+    mainGoal: "offering excellent legal services while upholding high ethical standards",
+    vision: "competing favourably and ultimately taking the lead among reputable Law firms both locally and internationally",
+    commitment: "deliver practical legal solutions with utmost prompt professionalism and expertise"
+  },
+
+  services: [
+    {
+      icon: <FaBalanceScale size={50} className="icon-hover" />,
+      title: "Commercial Law",
+      number: "01",
+      description: "Our expert team handles contracts and debt recovery with unmatched precision and strategic insight.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaGavel size={50} className="icon-hover" />,
+      title: "Arbitration",
+      number: "02",
+      description: "We offer effective dispute resolution through skilled arbitration and mediation services.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaLightbulb size={50} className="icon-hover" />,
+      title: "Intellectual Property",
+      number: "03",
+      description: "Protect your innovations and creative works with our comprehensive intellectual property services.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaShip size={50} className="icon-hover" />,
+      title: "Maritime Law",
+      number: "04",
+      description: "Our team expertly navigates maritime regulations and disputes, ensuring favorable outcomes.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaHome size={50} className="icon-hover" />,
+      title: "Property Law",
+      number: "05",
+      description: "Receive expert advice on property transactions and disputes with our in-depth property law services.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaVoteYea size={50} className="icon-hover" />,
+      title: "Election Law",
+      number: "06",
+      description: "We provide legal guidance on election-related issues and campaign regulations to ensure compliance.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaHeartBroken size={50} className="icon-hover" />,
+      title: "Family Law",
+      number: "07",
+      description: "Expert handling of divorce and matrimonial disputes with sensitivity and professionalism.",
+      link: "/service-details"
+    },
+    // New Services
+    {
+      icon: <FaBook size={50} className="icon-hover" />,
+      title: "Corporate Law Practice",
+      number: "08",
+      description: "Specializing in corporate law matters including governance, compliance, and corporate disputes.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaHome size={50} className="icon-hover" />,
+      title: "Property Consultancy",
+      number: "09",
+      description: "Offering expert advice on property investments, management, and legal issues.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaDollarSign size={50} className="icon-hover" />,
+      title: "Debt Recovery",
+      number: "10",
+      description: "Providing efficient solutions for recovering outstanding debts through legal channels.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaHandshake size={50} className="icon-hover" />,
+      title: "Soliciting",
+      number: "11",
+      description: "Handling legal soliciting services for various types of agreements and negotiations.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaFileContract size={50} className="icon-hover" />,
+      title: "Legal Research",
+      number: "12",
+      description: "Conducting thorough legal research to support your cases and legal matters.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaUsers size={50} className="icon-hover" />,
+      title: "Corporate Consultants",
+      number: "13",
+      description: "Offering consulting services for corporate management and operational strategies.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaChartLine size={50} className="icon-hover" />,
+      title: "General Litigation",
+      number: "14",
+      description: "Expert representation in general commercial and labor law disputes.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaBook size={50} className="icon-hover" />,
+      title: "Alternative Dispute Resolution (ADR)",
+      number: "15",
+      description: "Providing alternative methods for resolving disputes outside of traditional court settings.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaFileContract size={50} className="icon-hover" />,
+      title: "Legal Drafting",
+      number: "16",
+      description: "Drafting and reviewing MOUs, leases, contracts, agreements, and conveyances with precision.",
+      link: "/service-details"
+    },
+    {
+      icon: <FaBook size={50} className="icon-hover" />,
+      title: "Time-Tested Legal Opinions",
+      number: "17",
+      description: "Providing reliable legal opinions on complex and straightforward legal issues.",
+      link: "/service-details"
+    }
+  ],
+
+  whyChooseUs: [
+    "Extensive experience across various legal fields",
+    "Customized strategies to meet your unique needs",
+    "Commitment to achieving favorable outcomes",
+    "Dedicated support and clear communication"
+  ]
+};
+
+
 const Service = () => {
-  const[handleShow, setHandleShow] = useState(false)
-  const services = [
-    {
-      icon: 'assets/images/resource/service-icon.png',
-      title: 'Initial Consultation',
-      number: '01',
-      text: 'We start with a detailed consultation to understand your case and assess the possibilities of recovery.',
-      link: '/service-details'
-    },
-    {
-      icon: 'assets/images/resource/service-icon3.png',
-      title: 'Investigation and Strategy',
-      number: '02',
-      text: 'Our team conducts a thorough investigation and develops a tailored strategy for fund recovery.',
-      link: '/service-details'
-    },
-    {
-      icon: 'assets/images/resource/service-icon2.png',
-      title: 'Recovery Process',
-      number: '03',
-      text: 'We execute the recovery process using advanced techniques and legal avenues to reclaim your funds.',
-      link: '/service-details'
-    },
-    {
-      icon: 'assets/images/resource/service-icon.png',
-      title: 'Success and Follow-up',
-      number: '04',
-      text: 'After successful recovery, we provide ongoing support and guidance to prevent future issues.',
-      link: '/service-details'
-    },
-    // Add more services as needed
-  ];
-  
   return (
-    <Layout>  
-      {/*==================================================*/}
-      {/* End consen about Area */}
-      {/*==================================================*/}
-      {/*==================================================*/}
-      {/* Start call do action Section */}
-      {/*===================================================*/}
-      <div className="call-do-action-section" style={{height: '500px', justifyContent: 'center'}}>
+    <Layout footer={1}>
+      {/* Hero Section */}
+      <div className="call-do-action-section" style={{ height: '500px', justifyContent: 'center', backgroundImage: 'url("https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="container">
           <div className="row">
-            <div className="col-lg-12 justify-content-center" style={{marginTop: '50px'}}>
+            <div className="col-lg-12 justify-content-center" style={{ marginTop: '50px' }}>
               <div className="call-do-action-content text-center">
-                <h1 className="text-white">
-                Let's ensure the swift return of your funds! <br />
+                <h1 className="text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+                  About Us
                 </h1>
-                <p className="text-white" style={{width: 'auto'}}>
-                If you've been defrauded, reach out to us, and our team of experts will diligently work to secure the swift recovery of your assets.
+                <p className="text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+                  Discover how {telimissionHillsData.companyName} provides exceptional legal services and innovative solutions tailored to your needs.
                 </p>
-                <div className="btn-common btn-cda mt-40" onClick={()=>setHandleShow(!handleShow)}>
-                  <Link legacyBehavior href="" >
-                    <a>Get a Free Consulation</a>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-                  <ModalForm showForm={handleShow} handleToggle={(y)=>setHandleShow(y)}/>
-      <p style={{ textAlign: 'center', fontSize: '1.2rem', marginTop: '50px', fontWeight: 'bold' }}>
-        We've helped recover from
-      </p>
-      <Marquee style={{ width: '60%', margin: 'auto' }}>
-        <img src="https://payback-ltd.com/images/carousel1/logo-6.png" width={200} />
-        <img src="https://payback-ltd.com/images/carousel1/logo-7.png" width={200} />
-        <img src="https://payback-ltd.com/images/carousel1/logo-8.png" width={200} />
-        <img src="https://payback-ltd.com/images/carousel1/logo-5.png" width={200} />
-      </Marquee>
-      {/*==================================================*/}
-      {/* Start consen Testimonial Area */}
-      {/*==================================================*/}
-      <h1 style={{textAlign: 'center', marginTop: '50px', marginBottom: '50px', color:'gray'}}>How It Works</h1>
-      <div className="row" style={{ paddingRight: '100px', paddingLeft: '100px' }}>
-        {services.map((service, index) => (
-          <div key={index} className="col-lg-6 col-sm-12 mb-4">
-            <div className="dreamit-service-box" style={{ borderRadius: '30px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
-              <div className="service-box-inner">
-                <div className="em-service-icon">
-                  <img src={service.icon} alt="" />
-                </div>
-                <div className="em-service-title">
-                  <h2>{service.title}</h2>
-                </div>
-                <div className="service-number">
-                  <h1>{service.number}</h1>
-                </div>
-                <div className="em-service-text">
-                  <p>{service.text}</p>
-                </div>
-
-              </div>
+      <div className="bg-light py-5 mt-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="mb-4">Our Mission</h2>
+              <p className="lead">
+                {telimissionHillsData.missionStatement.mainGoal}, {telimissionHillsData.missionStatement.vision}.
+              </p>
+              <p>
+                It is our quest and passion to {telimissionHillsData.missionStatement.commitment}. This stands us out as a firm and propels clients to prefer our legal services above other available choices.
+              </p>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-      {/*==================================================*/}
-      {/* End consen Testimonial Area */}
-      {/*==================================================*/}
-      {/*==================================================*/}
-      {/* Start Brand Section */}
-      {/*===================================================*/}
-      <div className="why-choose-us-area">
+      {/* About Us Section */}
+      <div className="container mt-5">
+        <div className="row align-items-center">
+          <div className="col-lg-6">
+            <h2 className="mb-4">About {telimissionHillsData.companyName}</h2>
+            <p>{telimissionHillsData.aboutUs.description}</p>
+            <p>
+              Our Law firm is constituted by {telimissionHillsData.aboutUs.partners.count} Partners of {telimissionHillsData.aboutUs.partners.experience} experience who have carved a niche for themselves in:
+            </p>
+            <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+
+              {telimissionHillsData.aboutUs.expertise.map((item, index) => (
+                <li
+                  key={index}
+                  style={{
+                    flex: '1 1 calc(50% - 16px)', // 50% width minus gap for two items per row
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px', // Space between icon and text
+                    color: '#4a4a4a', // Gray color for text
+                  }}
+                >
+                  <i
+                    className="bi bi-arrow-right-circle"
+                    style={{
+                      color: '#1d4ed8', // Blue color for icon
+                      fontSize: '24px', // Icon size
+                    }}
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-lg-6">
+            <img
+              src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="TelimissionHills & Co Team"
+              className="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Mission Statement Section */}
+
+
+      {/* Services Section */}
+      <div className='container mt-5'>
+        <h2 className="text-center mb-4">Our Services</h2>
+        <ServicesSection services={telimissionHillsData.services} all={true} />
+      </div>
+
+      {/* Why Choose Us Section */}
+      <div className="why-choose-us-area py-5">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="consen-section-title">
-                <h5> Why Choose Us for Fund Recovery? </h5>
-                <h2> Regain Your Funds with Confidence </h2>
+                <h5>Why Choose {telimissionHillsData.companyName}?</h5>
+                <h2>Your Trusted Legal Partner</h2>
                 <p className="choose-text1">
-                  We specialize in recovering lost funds by leveraging strategic methods and expertise. Our approach ensures efficient recovery through proactive solutions tailored to your needs.
+                  At {telimissionHillsData.companyName}, we specialize in delivering tailored legal solutions with unmatched expertise. Our proactive approach ensures efficient handling of your legal matters, providing you with the confidence and support you need.
                 </p>
               </div>
               <div className="dreamit-icon-list">
-                <ul>
-                  <li>
-                    <i className="bi bi-arrow-right-circle" />{" "}
-                    <span> Expertise in navigating complex fund recovery processes </span>
-                  </li>
-                  <li>
-                    <i className="bi bi-arrow-right-circle" />{" "}
-                    <span> Utilize advanced recovery methodologies </span>
-                  </li>
-                  <li>
-                    <i className="bi bi-arrow-right-circle" />{" "}
-                    <span> Streamline recovery operations </span>
-                  </li>
-                  <li>
-                    <i className="bi bi-arrow-right-circle" />{" "}
-                    <span> Innovative strategies tailored to each case </span>
-                  </li>
+                <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                  {telimissionHillsData.whyChooseUs.map((item, index) => (
+                    <li
+                      key={index}
+                      style={{
+                        flex: '1 1 calc(50% - 16px)', // 50% width minus gap for two items per row
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px', // Space between icon and text
+                        color: '#4a4a4a', // Gray color for text
+                      }}
+                    >
+                      <i
+                        className="bi bi-arrow-right-circle"
+                        style={{
+                          color: '#1d4ed8', // Blue color for icon
+                          fontSize: '24px', // Icon size
+                        }}
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
-              <div className="why-choose-button">
-                <Link legacyBehavior href="/about">
-                  <a>
-                    {" "}
-                    <i className="bi bi-gear" /> Learn More{" "}
-                  </a>
-                </Link>
-              </div>
             </div>
-
             <div className="col-lg-6 col-md-12">
               <div className="why-choose-us-thumb">
-                <img src="https://images.pexels.com/photos/7693099/pexels-photo-7693099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Fund Recovery" style={{ borderRadius: '30px' }} />
-                {/* choose shape thumb */}
-                <div className="why-choose-us-image">
-                  <div className="why-choose-us-shape-thumb bounce-animate">
-                    <img src="assets/images/resource/all-shape2.png" alt="" />
-                  </div>
-                  <div className="why-choose-us-shape-thumb2 rotateme">
-                    <img src="https://consen-react.vercel.app/assets/images/resource/case-shape.png" alt="" />
-                  </div>
-                  <div className="why-choose-us-shape-thumb3 bounce-animate2">
-                    <img src="assets/images/resource/case-shape2.png" alt="" />
-                  </div>
-                  <div className="why-choose-us-shape-thumb4">
-                    <img src="assets/images/about/about-shape4.png" alt="" />
-                  </div>
-                </div>
-                {/* end choose shape thumb */}
+                <img
+                  src="law.jpeg"
+                  alt="Legal Services"
+                  style={{ borderRadius: '30px' }}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <TBH />
     </Layout>
   );
 };
+
 export default Service;

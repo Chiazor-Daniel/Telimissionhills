@@ -17,6 +17,10 @@ const MobileMenu = () => {
     <div className="mobile-menu-area d-sm-block d-md-block d-lg-none header____" style={{background: 'black'}}>
       <div className="mobile-menu mean-container" style={{background: 'black'}}>
         <div className="mean-bar">
+        <div style={{position: 'absolute', top: '0', zIndex: 999, display: 'flex', alignItems: 'center', background: ''}}>
+        <img src="lg.png" style={{width: '80px', height: ''}} alt="logo" />
+        <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>TellimissionHills</h1>
+        </div>
           <a
             href="#nav"
             className={`meanmenu-reveal ${toggle ? "meanclose" : ""}`}
@@ -33,20 +37,13 @@ const MobileMenu = () => {
           <nav className="mean-nav">
             <ul className="nav_scroll" style={{ display: toggle ? "block" : "none" }}>
               <li>
-                <a href="/">Home</a>
+                <a href="/home">Home</a>
               </li>
               <li>
-                <a href="/testimonial">Testimonial</a>
+                <a href="/service">Our Firm</a>
               </li>
               <li>
-                <a href="/portfolio">Blacklist</a>
-              </li>
-              <li>
-                <a href="/service">Recovery</a>
-                
-              </li>
-              <li>
-                <a href="/blogs">Blog</a>
+                <a href="/team">Our Team</a>
               </li>
               <li className="mean-last">
                 <Link legacyBehavior href="/contact">
