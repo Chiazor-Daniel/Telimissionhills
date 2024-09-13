@@ -233,7 +233,7 @@ const Index = () => {
     },
     {
       icon: <FaHeartBroken size={50} className="icon-hover" />,
-      title: 'Matrimonial Causes',
+      title: 'Matrimonial Cases',
       number: '07',
       description: 'Handling divorce and matrimonial disputes with sensitivity and expertise.',
       link: '/service-details'
@@ -309,7 +309,7 @@ const Index = () => {
             data-aos="fade-left" // Apply AOS animation
           >
             <div className="slider-content">
-              <h1> Principles Law Partnership </h1>
+              <h1> Principal Law Partnership </h1>
               <h1>
                 {" "}
                 Where <span>Results Matter</span>

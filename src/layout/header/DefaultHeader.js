@@ -14,20 +14,20 @@ const DefaultHeader = () => {
             <div className="logo">
               <Link legacyBehavior href="/">
                 <a className="logo_img" title="consen">
-                  <div style={{padding: '0px', backgroundColor: '', width: '300px', paddingRight: '20px',paddingLeft: '30px', height: '100px', position: 'absolute', top: -40
+                  <div style={{padding: '0px', backgroundColor: '', width: '600px', paddingRight: '20px',paddingLeft: '30px', height: '100px', position: 'absolute', top: -40
                   , left: -150, display: 'flex', gap: '20px', alignItems: 'center', borderRadius: '50px', display: 'flex'}}>
                     <div></div>
                     <div style={{background: '', padding: '10px', width: 'fit', borderRadius: '50%', height: 'fit', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <img src="lg.png" style={{width: '100px', height: ''}} alt="logo" />
 
                     </div>
-                    <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>TellimissionHills</h1>
+                    <h1 className="head" style={{fontSize: '2rem', color: 'white', width: 'auto'}}>TellimissionHills &CO.</h1>
                   </div>
                 </a>
               </Link>
               <Link legacyBehavior href="/">
                 <a className="main_sticky" title="consen" style={{padding: '10px'}}>
-                <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>TellimissionHills</h1>
+                <h1 className="head" style={{fontSize: '2rem', color: 'white', width: '500px'}}>TellimissionHills &Co.</h1>
                   
                 </a>
               </Link>

@@ -309,7 +309,7 @@ const Index = () => {
             data-aos="fade-left" // Apply AOS animation
           >
             <div className="slider-content">
-              <h1> Principles Law Partnership </h1>
+              <h1> Principal Law Partnership </h1>
               <h1>
                 {" "}
                 Where <span>Results Matter</span>

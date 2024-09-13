@@ -34,7 +34,7 @@ export const TeamSection = ({ legal }) => {
       name: "NWOKE GODWIN OKEZIE, ESQ",
       position: "Lead Partner",
       image: "sir1.jpeg",
-      description: "Nwoke Godwin Okezie, Esq was called to Bar in 2004. L.L.B (Hons) in 2003 and L.L.M in 2024 from the Rivers State University.",
+      description: "Nwoke Godwin Okezie, Esq Graduated 2003 was later called to Bar in 2004. L.L.B (Hons) in 2003 and L.L.M in 2024 from the Rivers State University.",
       dataAos: "aos-left"
     },
     {
