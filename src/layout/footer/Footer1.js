@@ -21,7 +21,7 @@ const Footer1 = () => {
                 <div className="company-info-desc pr-2">
                   <h4 className="widget-title"> About Us </h4>
                   <p>
-                    At TellimissionHills, we are committed to providing expert legal counsel and personalized services. Our team of dedicated professionals is here to guide you through complex legal matters with the utmost care and precision.
+                    At TelimissionHills, we are committed to providing expert legal counsel and personalized services. Our team of dedicated professionals is here to guide you through complex legal matters with the utmost care and precision.
                   </p>
                 </div>
                
@@ -92,7 +92,7 @@ const Footer1 = () => {
             <div className="col-md-4">
               <div className="consen-logo">
                 <Link legacyBehavior href="/">
-                  <a className="logo_thumb" title="TellimissionHills">
+                  <a className="logo_thumb" title="TelimissionHills">
                     <img src="lg.png" style={{width: '100px', height: '50px'}} alt="logo" />
                   <div>
                     </div>
@@ -104,7 +104,7 @@ const Footer1 = () => {
               <div className="footer-bottom-content">
                 <div className="footer-bottom-content-copy">
                   <p>
-                    © 2023 <span>TellimissionHills</span> all rights reserved
+                    © 2023 <span>TelimissionHills</span> all rights reserved
                   </p>
                 </div>
               </div>

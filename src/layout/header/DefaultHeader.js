@@ -21,13 +21,13 @@ const DefaultHeader = () => {
                     <img src="lg.png" style={{width: '100px', height: ''}} alt="logo" />
 
                     </div>
-                    <h1 className="head" style={{fontSize: '2rem', color: 'white', width: 'auto'}}>TellimissionHills &CO.</h1>
+                    <h1 className="head" style={{fontSize: '2rem', color: 'white', width: 'auto'}}>TelimissionHills &CO.</h1>
                   </div>
                 </a>
               </Link>
               <Link legacyBehavior href="/">
                 <a className="main_sticky" title="consen" style={{padding: '10px'}}>
-                <h1 className="head" style={{fontSize: '2rem', color: 'white', width: '500px'}}>TellimissionHills &Co.</h1>
+                <h1 className="head" style={{fontSize: '2rem', color: 'white', width: '500px'}}>TelimissionHills &Co.</h1>
                   
                 </a>
               </Link>

@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
     {
       name: "Sarah Thompson",
       company: "Thompson Enterprises",
-      quote: "TellimissionHills provided exceptional legal counsel during our company's merger. Their expertise in corporate law was invaluable."
+      quote: "TelimissionHills provided exceptional legal counsel during our company's merger. Their expertise in corporate law was invaluable."
     },
     {
       name: "Robert Chen",
@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
     {
       name: "Emily Rodriguez",
       company: "Global Shipping Co.",
-      quote: "In a complex maritime dispute, TellimissionHills's expertise was crucial. They navigated the case with skill and achieved a favorable outcome."
+      quote: "In a complex maritime dispute, TelimissionHills's expertise was crucial. They navigated the case with skill and achieved a favorable outcome."
     }
   ];
 

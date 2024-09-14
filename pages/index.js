@@ -309,7 +309,7 @@ const Index = () => {
             data-aos="fade-left" // Apply AOS animation
           >
             <div className="slider-content">
-              <h1> Principal Law Partnership </h1>
+              <h1> Principles Law Partnership </h1>
               <h1>
                 {" "}
                 Where <span>Results Matter</span>
@@ -335,7 +335,7 @@ const Index = () => {
                 <div className="contact-number">
                   <span> Call Anytime </span>
                   <h3>
-                    <a href="tel:+19876543210">+234 7036719282</a>{" "}
+                    <a href="tel:+19876543210">+234 803 86 94203</a>{" "}
                   </h3>
                 </div>
               </div>
