@@ -309,7 +309,7 @@ const Index = () => {
             data-aos="fade-left" // Apply AOS animation
           >
             <div className="slider-content">
-              <h1> TelimissionHills&Co. </h1>
+              <h1> Telimissionhills&Co. </h1>
               <h1 style={{fontSize: '3rem'}}>
                 {" "}
                 Where <span>Results Matter</span>

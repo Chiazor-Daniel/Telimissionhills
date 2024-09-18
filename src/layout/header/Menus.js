@@ -5,7 +5,7 @@ export const DaskTopMenusMenus = () => {
     <ul className="nav_scroll" style={{width: 'auto'}}>
       {" "}
       <li>
-        <a href="/home">
+        <a href="/">
           Home{" "}
           <span>
           </span>
