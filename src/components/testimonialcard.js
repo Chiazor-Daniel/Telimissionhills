@@ -27,21 +27,22 @@ const TestimonialCard = ({ quote, name, company }) => (
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Thompson",
-      company: "Thompson Enterprises",
-      quote: "TelimissionHills provided exceptional legal counsel during our company's merger. Their expertise in corporate law was invaluable."
+      name: "Francis Anene",
+      company: "BH Logistics",
+      quote: "TelimissionHills provides exceptional legal counsel during our Company's partnership with N.M.T USA. Their expertise in corporate law is invaluable."
     },
     {
-      name: "Robert Chen",
-      company: "Innovate Tech",
-      quote: "Their intellectual property team helped us secure crucial patents. Their professionalism and attention to detail are unmatched."
+      name: "Aribibia Billy",
+      company: "ARI Marine Services Ltd.",
+      quote: "In our complex maritime dispute, TelimissionHills' expertise paid off. They navigated the case with skill, dexterity, and commitment, leading to our achieving the most desired favorable outcome."
     },
-    {
-      name: "Emily Rodriguez",
-      company: "Global Shipping Co.",
-      quote: "In a complex maritime dispute, TelimissionHills's expertise was crucial. They navigated the case with skill and achieved a favorable outcome."
-    }
+    // {
+    //   name: "Robert Chen",
+    //   company: "Innovate Tech",
+    //   quote: "Their intellectual property team helped us secure crucial patents. Their professionalism and attention to detail are unmatched."
+    // }
   ];
+  
 
   useEffect(() => {
     AOS.init({

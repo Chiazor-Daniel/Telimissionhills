@@ -177,7 +177,7 @@ const Contact = () => {
                   <div className="cda-content-inner">
                     <h4>Our Email Address</h4>
                     <p>
-                    telimisionhillsco@gmail.com
+                    telimissionhills@gmail.com
                     </p>
                   </div>
                 </div>

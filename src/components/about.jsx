@@ -57,7 +57,7 @@ const AboutSection = () => {
                 </li>
                 <li>
                   <i className="flaticon-email" />{" "}
-                  <span>telimisionhillsco@gmail.com</span>
+                  <span>telimissionhills@gmail.com</span>
                 </li>
               </ul>
             </div>
