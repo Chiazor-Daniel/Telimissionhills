@@ -19,7 +19,7 @@ const MobileMenu = () => {
         <div className="mean-bar">
         <div style={{position: 'absolute', top: '0', zIndex: 999, display: 'flex', alignItems: 'center', background: ''}}>
         <img src="lg.png" style={{width: '80px', height: ''}} alt="logo" />
-        <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>Telimissionills &CO.</h1>
+        <h1 className="head" style={{fontSize: '2rem', color: 'white'}}>Telimissionhills &CO.</h1>
         </div>
           <a
             href="#nav"
