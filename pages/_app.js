@@ -137,7 +137,7 @@ const App = ({ Component, pageProps }) => {
               }}>
                 For urgent inquiries, please contact{' '}
                 <a 
-                  href="mailto:support@example.com" 
+                  href="mailto: telimissionhills.co@gmail.com" 
                   style={{
                     color: '#2563EB',
                     textDecoration: 'none'
@@ -145,7 +145,7 @@ const App = ({ Component, pageProps }) => {
                   onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
                   onMouseOut={(e) => e.target.style.textDecoration = 'none'}
                 >
-                  support@example.com
+                   telimissionhills.co@gmail.com
                 </a>
               </p>
             </div>
