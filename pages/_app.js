@@ -3,7 +3,7 @@ import { WrenchIcon, ClockIcon } from 'lucide-react';
 
 const App = ({ Component, pageProps }) => {
   const [loading, setLoading] = React.useState(true);
-  const [maintenance, setMaintenance] = React.useState(true);
+  const [maintenance, setMaintenance] = React.useState(false);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
