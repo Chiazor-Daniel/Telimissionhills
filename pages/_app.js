@@ -1,5 +1,7 @@
 import React from 'react';
 import { WrenchIcon, ClockIcon } from 'lucide-react';
+import ConsenHead from '@/src/ConsenHead';
+import Preloader from '@/src/layout/Preloader';
 
 const App = ({ Component, pageProps }) => {
   const [loading, setLoading] = React.useState(true);
