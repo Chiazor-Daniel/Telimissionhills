@@ -5,7 +5,7 @@ import Preloader from '@/src/layout/Preloader';
 
 const App = ({ Component, pageProps }) => {
   const [loading, setLoading] = React.useState(true);
-  const [maintenance, setMaintenance] = React.useState(true);
+  const [maintenance, setMaintenance] = React.useState(false);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
