@@ -4,6 +4,22 @@ import { useState } from 'react';
 const cases = [
   {
     id: '01',
+    title: 'Rev. Peter Nganje v. Mrs. Peter Nganje',
+    category: 'Family & Custody Law',
+    summary:
+      'Petitioner sought sole custody without access to Respondent. We represented the Respondent and filed a Cross Petition for custody, maintenance, and property settlement. Court advised settlement on welfare of children. Settlement succeeded; client received part of the disputed properties, and consent judgment was entered.',
+    outcome: 'Client secured property settlement and favorable custody terms',
+  },
+  {
+    id: '02',
+    title: 'Mrs. Joy Abasu Umoh V. Dr. Abasu Umoh',
+    category: 'Matrimonial & Property Law',
+    summary:
+      'Family dispute. Our client (Petitioner) sought dissolution of marriage and claimed ₦30 million as her contribution to properties acquired during marriage.',
+    outcome: 'Judgment delivered in favor of our client',
+  },
+  {
+    id: '03',
     title: 'Barr. Charles Nwogu V. Mr. Uchenna Nwogu',
     category: 'Property & Inheritance Law',
     summary:
@@ -11,7 +27,7 @@ const cases = [
     outcome: "Successful defense of client's property rights",
   },
   {
-    id: '02',
+    id: '04',
     title: 'Joy Okwuchi Amara V. George Ogbaji Amara',
     category: 'Matrimonial Law',
     summary:
@@ -19,23 +35,23 @@ const cases = [
     outcome: 'Favorable judgment secured and upheld',
   },
   {
-    id: '03',
-    title: 'Dr. Chidiebere Okeke v Mrs Onyeka Okeke',
+    id: '05',
+    title: 'Dr. Chidiebere Okeke v. Mrs. Onyeka Okeke',
     category: 'Family & Custody Law',
     summary:
       "Custody case. We represented the Respondent seeking unrestricted access to children. We opposed the application and judgment was in our client's favor.",
     outcome: "Client's parental rights protected",
   },
   {
-    id: '04',
+    id: '06',
     title: 'Ngus Ugochukwu Ojiaku V. Commissioner of Police & 4',
     category: 'Constitutional Law',
     summary:
-      'Fundamental rights suit involving constitutional violations and civil liberties protection.',
+      'Fundamental rights suit involving constitutional violations and civil liberties protection. Case was amicably resolved.',
     outcome: 'Amicably settled with client satisfaction',
   },
   {
-    id: '05',
+    id: '07',
     title: 'Merit Orlu-Nene & 4 Ors V. Christian Orlu-Nene & 1 Ors',
     category: 'Customary & Inheritance Law',
     summary:
