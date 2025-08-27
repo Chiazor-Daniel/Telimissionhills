@@ -2,8 +2,61 @@
 import { useState } from 'react';
 
 const cases = [
+  // New cases at the top
   {
     id: '01',
+    title: 'Gen.TY Danjuma(Rtd) v Pastor Paul Rika & HOREMOW',
+    category: 'Defamation Law',
+    summary:
+      'High profile defamation case where Gen T.Y Danjuma(Rtd) claims 1 billion Naira against our clients Pastor Paul Rika and HOREMOW. Defence filed with preliminary objection to Lagos High Court jurisdiction. Case referred to mediation committee for potential out-of-court settlement.',
+    outcome:
+      'Ongoing; actively participating in mediation to resolve matter amicably',
+  },
+  {
+    id: '02',
+    title: 'King George Eppie v Dr. Chujor S.N. Chujor',
+    category: 'Property & Land Law',
+    summary:
+      'Land dispute with our client King George Eppie as Claimant against Dr. Chujor S. Chujor for trespass on our client’s land at Rivers State High Court, Inchia Division.',
+    outcome: 'Pending in court',
+  },
+  {
+    id: '03',
+    title: 'Ms Florence Nnnena Cookey-Gam v Abigail Power Ogichen & 2 Ors',
+    category: 'Property Law',
+    summary:
+      'Our client Ms Cookey-Gam was illegally dispossessed of her property. We intervened, restored her title, and obtained voluntary settlement and consent judgment in her favor.',
+    outcome: 'Title restored and consent judgment entered',
+  },
+  {
+    id: '04',
+    title: 'Dr. Patrick Innocent v PHED',
+    category: 'Administrative & Utility Law',
+    summary:
+      'Client served with unsubstantiated bills and disconnected by PHED. Petitioned NERC which ruled in favor of client. Filed suit against PHED for non-compliance with NERC ruling.',
+    outcome: 'Pending in Rivers State High Court',
+  },
+  {
+    id: '05',
+    title:
+      'Chijioke Jerry Dike Ogbulubi v Mr. Promise Nwankwo & Persons Unknown',
+    category: 'Property & Trespass Law',
+    summary:
+      'Client returned to find land purchased from Mr. Promise Nwankwo trespassed upon. Filed suit against vendor and unknown trespassers. Court ordered site visit before judgment.',
+    outcome: 'Pending in Rivers State High Court',
+  },
+  {
+    id: '06',
+    title: 'Mrs. Victoria Ngozi Alumni v Fred Owoko',
+    category: 'Property Law / Church Title',
+    summary:
+      "Inherited case defending church's title to land conveyed by Mr. Fred Owoko. Successfully restored case to cause list and challenged fraudulent judgment. Court awarded punitive costs and ordered accelerated hearing.",
+    outcome: 'Pending; poised to set aside fraudulent judgment',
+  },
+
+  // Original cases follow
+  {
+    id: '07',
     title: 'Rev. Peter Nganje v. Mrs. Peter Nganje',
     category: 'Family & Custody Law',
     summary:
@@ -11,7 +64,7 @@ const cases = [
     outcome: 'Client secured property settlement and favorable custody terms',
   },
   {
-    id: '02',
+    id: '08',
     title: 'Mrs. Joy Abasu Umoh V. Dr. Abasu Umoh',
     category: 'Matrimonial & Property Law',
     summary:
@@ -19,7 +72,7 @@ const cases = [
     outcome: 'Judgment delivered in favor of our client',
   },
   {
-    id: '03',
+    id: '09',
     title: 'Barr. Charles Nwogu V. Mr. Uchenna Nwogu',
     category: 'Property & Inheritance Law',
     summary:
@@ -27,7 +80,7 @@ const cases = [
     outcome: "Successful defense of client's property rights",
   },
   {
-    id: '04',
+    id: '10',
     title: 'Joy Okwuchi Amara V. George Ogbaji Amara',
     category: 'Matrimonial Law',
     summary:
@@ -35,7 +88,7 @@ const cases = [
     outcome: 'Favorable judgment secured and upheld',
   },
   {
-    id: '05',
+    id: '11',
     title: 'Dr. Chidiebere Okeke v. Mrs. Onyeka Okeke',
     category: 'Family & Custody Law',
     summary:
@@ -43,7 +96,7 @@ const cases = [
     outcome: "Client's parental rights protected",
   },
   {
-    id: '06',
+    id: '12',
     title: 'Ngus Ugochukwu Ojiaku V. Commissioner of Police & 4',
     category: 'Constitutional Law',
     summary:
@@ -51,7 +104,7 @@ const cases = [
     outcome: 'Amicably settled with client satisfaction',
   },
   {
-    id: '07',
+    id: '13',
     title: 'Merit Orlu-Nene & 4 Ors V. Christian Orlu-Nene & 1 Ors',
     category: 'Customary & Inheritance Law',
     summary:
