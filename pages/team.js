@@ -1,90 +1,44 @@
-import React, { useState } from 'react';
-import Layout from "@/src/layout/Layout";
-import ServicesSection from "@/src/components/service";
-import TBH from "@/src/components/tbh/tbh";
-import Link from "next/link";
-import { FaBalanceScale, FaGavel, FaLightbulb, FaShip, FaHome, FaVoteYea, FaHeartBroken } from "react-icons/fa";
-import { TeamSection } from '@/src/components/members';
+import Image from 'next/image';
+import Seo from '@/components/Seo';
+import { partners } from '@/lib/firm';
 
-const Team = () => {
-  const [handleShow, setHandleShow] = useState(false);
-  
-  const services = [
-    {
-      icon: <FaBalanceScale size={50} className="icon-hover" />,
-      title: 'Commercial Law',
-      number: '01',
-      description: 'Our expert team handles contracts and debt recovery with unmatched precision and strategic insight.',
-      link: '/service-details'
-    },
-    {
-      icon: <FaGavel size={50} className="icon-hover" />,
-      title: 'Arbitration',
-      number: '02',
-      description: 'We offer effective dispute resolution through skilled arbitration and mediation services.',
-      link: '/service-details'
-    },
-    {
-      icon: <FaLightbulb size={50} className="icon-hover" />,
-      title: 'Intellectual Property',
-      number: '03',
-      description: 'Protect your innovations and creative works with our comprehensive intellectual property services.',
-      link: '/service-details'
-    },
-    {
-      icon: <FaShip size={50} className="icon-hover" />,
-      title: 'Maritime Law',
-      number: '04',
-      description: 'Our team expertly navigates maritime regulations and disputes, ensuring favorable outcomes.',
-      link: '/service-details'
-    },
-    {
-      icon: <FaHome size={50} className="icon-hover" />,
-      title: 'Property Law',
-      number: '05',
-      description: 'Receive expert advice on property transactions and disputes with our in-depth property law services.',
-      link: '/service-details'
-    },
-    {
-      icon: <FaVoteYea size={50} className="icon-hover" />,
-      title: 'Election Law',
-      number: '06',
-      description: 'We provide legal guidance on election-related issues and campaign regulations to ensure compliance.',
-      link: '/service-details'
-    },
-    {
-      icon: <FaHeartBroken size={50} className="icon-hover" />,
-      title: 'Family Law',
-      number: '07',
-      description: 'Expert handling of divorce and matrimonial disputes with sensitivity and professionalism.',
-      link: '/service-details'
-    }
-  ];
-
+export default function Team() {
   return (
-    <Layout footer={1}>  
-      {/*==================================================*/}
-      {/* Start call to action Section */}
-      {/*===================================================*/}
-      <div className="call-do-action-section" style={{ height: '500px', justifyContent: 'center' }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 justify-content-center" style={{ marginTop: '50px' }}>
-              <div className="call-do-action-content text-center">
-                <h1 className="text-white">
-                  Meet Our Team
-                </h1>
-                
-              </div>
-            </div>
-          </div>
+    <>
+      <Seo
+        title="Team"
+        description="The partners of TelimissionHills & Co.: Nwoke Godwin Okezie (Lead Partner), Noel Eloho Ighota and Regina Oreighe Ovoro, legal practitioners in Port Harcourt."
+        path="/team"
+      />
+      <section className="page-head">
+        <div className="wrap">
+          <h1 className="page-title">The partners</h1>
+          <p className="lede">Three partners with over 30 years post-call between them. Every matter is led by one of them.</p>
         </div>
-      </div>
-        <TeamSection legal={true}/>
-      
-  
-    </Layout>
+      </section>
+      <section className="section section-tight">
+        <div className="wrap team-list">
+          {partners.map((p, i) => (
+            <article key={p.slug} id={p.slug} className="profile">
+              <Image
+                src={p.image}
+                alt={`Portrait of ${p.name}`}
+                width={720}
+                height={1080}
+                priority={i === 0}
+                sizes="(max-width: 700px) 100vw, 320px"
+              />
+              <div>
+                <h2 className="profile-name">{p.name}</h2>
+                <p className="profile-role">{p.role}</p>
+                <ul className="credentials">
+                  {p.credentials.map((c) => <li key={c}>{c}</li>)}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
   );
-};
-
-export default Team;
+}

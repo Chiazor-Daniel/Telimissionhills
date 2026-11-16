@@ -1,197 +1,121 @@
-import Breadcumb from "@/src/components/Breadcumb";
-import Layout from "@/src/layout/Layout";
-import Swal from 'sweetalert2';
-import { useState } from "react";
+import { useState } from 'react';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import Seo from '@/components/Seo';
+import { firm, fullAddress, practiceAreas } from '@/lib/firm';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    web: "",
-    message: "",
-  });
+const EMPTY = { name: '', phone: '', email: '', area: '', message: '' };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+// No server is involved: submitting opens the visitor's email app with the
+// message addressed to the firm, so nothing can be silently lost.
+function mailtoFor(f) {
+  const subject = `Consultation request${f.area ? `: ${f.area}` : ''} from ${f.name}`;
+  const body = [
+    f.message,
+    '',
+    `Name: ${f.name}`,
+    `Phone: ${f.phone}`,
+    f.email && `Email: ${f.email}`,
+    f.area && `Area: ${f.area}`,
+  ].filter((l) => l !== false && l !== undefined).join('\n');
+  return `mailto:${firm.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
-  const handleSubmit = (e) => {
+export default function Contact() {
+  const [form, setForm] = useState(EMPTY);
+  const [opened, setOpened] = useState(false);
+  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+
+  const submit = (e) => {
     e.preventDefault();
-
-    Swal.fire({
-      icon: 'info',
-      title: 'Do you want to send the message?',
-      showCancelButton: true,
-      confirmButtonText: 'Send',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Message Sent!',
-          text: 'Your message has been sent successfully.',
-        });
-
-        // Clear the form inputs
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          web: "",
-          message: "",
-        });
-      }
-    });
+    window.location.href = mailtoFor(form);
+    setOpened(true);
   };
 
   return (
-    <Layout footer={1}>
-     <div className="call-do-action-section" style={{ height: '500px', justifyContent: 'center' }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 justify-content-center" style={{ marginTop: '50px' }}>
-              <div className="call-do-action-content text-center">
-                <h1 className="text-white">
-                  Schedule a meeting
-                </h1>
-                
-              </div>
-            </div>
-          </div>
+    <>
+      <Seo
+        title="Contact and consultations"
+        description="Book a consultation with TelimissionHills & Co. at No. 197 Odili Road, Trans-Amadi, Port Harcourt. Call 0803 869 4203, 0703 671 9282 or 0806 437 1940."
+        path="/contact"
+      />
+      <section className="page-head">
+        <div className="wrap">
+          <h1 className="page-title">Book a consultation</h1>
+          <p className="lede">Call the office, or describe your matter below and a partner will get back to you.</p>
         </div>
-      </div>
-      {/*==================================================*/}
-      {/* Start Appoinment Section */}
-      {/*===================================================*/}
-      <div className="contact-us pt-90 pb-90">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 col-md-6 col-lg-8 pl-0 pr-0">
-              <div className="contact_from_box">
-                <div className="contact_title pb-4">
-                  <h3>Get In Touch</h3>
-                </div>
-                <form
-                  onSubmit={handleSubmit}
-                  method="POST"
-                  id="dreamit-form"
-                >
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="form_box mb-30">
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          value={formData.name}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="form_box mb-30">
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Email Address"
-                          value={formData.email}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="form_box mb-30">
-                        <input
-                          type="text"
-                          name="phone"
-                          placeholder="Phone Number"
-                          value={formData.phone}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="form_box mb-30">
-                        
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="form_box mb-30">
-                        <textarea
-                          name="message"
-                          id="message"
-                          cols={30}
-                          rows={10}
-                          placeholder="Your Message"
-                          value={formData.message}
-                          onChange={handleChange}
-                        />
-                      </div>
-                      <div className="quote_button">
-                        <button className="btn" type="submit">
-                          {" "}
-                          <i className="bi bi-gear" /> Get Consultant
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                <div id="status" />
+      </section>
+      <section className="section section-tight">
+        <div className="wrap contact-grid">
+          <form className="form" onSubmit={submit}>
+            <div className="field-row">
+              <label className="field">
+                <span>Name</span>
+                <input required autoComplete="name" value={form.name} onChange={set('name')} />
+              </label>
+              <label className="field">
+                <span>Phone</span>
+                <input required type="tel" autoComplete="tel" value={form.phone} onChange={set('phone')} />
+              </label>
+            </div>
+            <label className="field">
+              <span>Email <em className="optional">optional</em></span>
+              <input type="email" autoComplete="email" value={form.email} onChange={set('email')} />
+            </label>
+            <label className="field">
+              <span>Area of law <em className="optional">optional</em></span>
+              <select value={form.area} onChange={set('area')}>
+                <option value="">Not sure</option>
+                {practiceAreas.map((a) => <option key={a.slug}>{a.title}</option>)}
+              </select>
+            </label>
+            <label className="field">
+              <span>What happened</span>
+              <textarea required rows={6} value={form.message} onChange={set('message')} />
+            </label>
+            <button type="submit" className="btn btn-primary">Continue in your email app</button>
+            <p className="form-note" role="status">
+              {opened
+                ? `Your email app should now be open with the message ready. Press send there. If nothing opened, email ${firm.email} or call ${firm.phones[0].display}.`
+                : 'This opens your email app with your message ready to send to the firm.'}
+            </p>
+          </form>
+
+          <aside className="contact-card">
+            <div className="contact-item">
+              <Phone size={18} strokeWidth={1.5} aria-hidden="true" />
+              <div>
+                <h2>Phone</h2>
+                <ul className="plain">
+                  {firm.phones.map((p) => (
+                    <li key={p.tel}><a href={`tel:${p.tel}`}>{p.display}</a></li>
+                  ))}
+                </ul>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-4 pl-0 pr-0">
-              <div className="cda-content-area">
-                <div className="cda-single-content d-flex">
-                  <div className="cda-icon">
-                    <i className="fas fa-map-marker-alt" />
-                  </div>
-                  <div className="cda-content-inner">
-                    <h4>Company Location</h4>
-                    <p>
-                    No. 197 Odili Road, Opposite Parkland Estate, Trans-Amadi,
-                    Port Harcourt, Rivers State, Nigeria
-                    </p>
-                  </div>
-                </div>
-                <div className="cda-single-content hr d-flex">
-                  <div className="cda-icon">
-                    <i className="fas fa-phone-alt" />
-                  </div>
-                  <div className="cda-content-inner">
-                    <h4>Telephone Number</h4>
-                    <p>
-                      +234 803 869 4203, <br />
-                      +234 703 671 9282,{" "} <br />
-                      +234 8064371940,{" "}
-                    </p>
-                  </div>
-                </div>
-                <div className="cda-single-content hr d-flex">
-                  <div className="cda-icon">
-                    <i className="fas fa-envelope" />
-                  </div>
-                  <div className="cda-content-inner">
-                    <h4>Our Email Address</h4>
-                    <p>
-                    telimissionhills.co@gmail.com
-                    </p>
-                  </div>
-                </div>
-                <div className="cda-single-content hr d-flex"></div>
+            <div className="contact-item">
+              <Mail size={18} strokeWidth={1.5} aria-hidden="true" />
+              <div>
+                <h2>Email</h2>
+                <a href={`mailto:${firm.email}`}>{firm.email}</a>
               </div>
             </div>
-          </div>
+            <div className="contact-item">
+              <MapPin size={18} strokeWidth={1.5} aria-hidden="true" />
+              <div>
+                <h2>Office</h2>
+                <address>{fullAddress}</address>
+              </div>
+            </div>
+            <iframe
+              className="map"
+              title="Map to the TelimissionHills & Co. office"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(firm.mapQuery)}&z=15&output=embed`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </aside>
         </div>
-      </div>
-      {/*==================================================*/}
-      {/* Start Contact Location Section */}
-      {/*===================================================*/}
-   
-    </Layout>
+      </section>
+    </>
   );
-};
-export default Contact;
+}

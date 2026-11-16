@@ -1,42 +1,23 @@
-import Link from "next/link";
-import { Fragment } from "react";
-const E404 = () => {
+import Head from 'next/head';
+import Link from 'next/link';
+
+export default function NotFound() {
   return (
-    <Fragment>
-      <div className="error-area">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="error-thumb">
-                {/* <img src="assets/images/resource/404.png" alt /> */}
-              </div>
-              <div className="error-content">
-                <h2>
-                  <span>Sorry!</span> Page Not Found
-                </h2>
-                <p>
-                  We can't find that page! The page you are <br />
-                  looking for was never existed.
-                </p>
-              </div>
-              <div className="error-search">
-                <input type="text" name="search" placeholder="Search" />
-                <button>
-                  <i className="fas fa-search" />
-                </button>
-              </div>
-              <div className="error-button">
-                <Link legacyBehavior href="/home">
-                  <a>
-                    <i className="fas fa-home" /> Back To Home
-                  </a>
-                </Link>
-              </div>
-            </div>
+    <>
+      <Head>
+        <title>Page not found | TelimissionHills & Co.</title>
+        <meta name="robots" content="noindex" />
+      </Head>
+      <section className="page-head page-404">
+        <div className="wrap">
+          <h1 className="page-title">This page does not exist</h1>
+          <p className="lede">It may have moved when the site was rebuilt.</p>
+          <div className="actions">
+            <Link href="/" className="btn btn-primary">Go to the home page</Link>
+            <Link href="/contact" className="btn btn-quiet">Contact the office</Link>
           </div>
         </div>
-      </div>
-    </Fragment>
+      </section>
+    </>
   );
-};
-export default E404;
+}

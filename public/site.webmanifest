@@ -1,0 +1,8 @@
+{
+  "name": "TelimissionHills & Co.",
+  "short_name": "TelimissionHills",
+  "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }],
+  "theme_color": "#161513",
+  "background_color": "#161513",
+  "display": "browser"
+}
