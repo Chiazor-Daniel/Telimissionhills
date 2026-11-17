@@ -7,6 +7,9 @@ import { cases, firm, fullAddress, partners, practiceAreas, testimonials } from 
 
 const featured = cases.filter((c) => c.featured);
 const mainPhone = firm.phones[0];
+const coreAreas = practiceAreas.slice(0, 4);
+const otherAreas = practiceAreas.slice(4);
+const calledYear = (p) => p.credentials.find((c) => c.startsWith('Called to the Bar'));
 
 export default function Home() {
   return (
@@ -66,11 +69,23 @@ export default function Home() {
           <Link href="/practice-areas" className="link-arrow">Details <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" /></Link>
         </div>
         <div className="wrap">
-          <ul className="areas-compact">
-            {practiceAreas.map((a) => (
-              <li key={a.slug}><Link href={`/practice-areas#${a.slug}`}>{a.title}</Link></li>
+          <div className="areas-core">
+            {coreAreas.map((a) => (
+              <Link key={a.slug} href={`/practice-areas#${a.slug}`} className="area-core">
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
+              </Link>
             ))}
-          </ul>
+          </div>
+          <p className="areas-more">
+            Also{' '}
+            {otherAreas.map((a, i) => (
+              <span key={a.slug}>
+                <Link href={`/practice-areas#${a.slug}`}>{a.title.toLowerCase()}</Link>
+                {i < otherAreas.length - 1 ? ', ' : ''}
+              </span>
+            ))}
+          </p>
         </div>
       </section>
 
@@ -87,7 +102,7 @@ export default function Home() {
             <Link key={p.slug} href={`/team#${p.slug}`} className="partner">
               <Image src={p.image} alt={p.name} width={720} height={1080} sizes="(max-width: 700px) 100vw, 33vw" />
               <span className="partner-name">{p.name}</span>
-              <span className="partner-role">{p.role}</span>
+              <span className="partner-role">{p.role}{calledYear(p) ? ` · ${calledYear(p)}` : ''}</span>
             </Link>
           ))}
         </div>
@@ -113,7 +128,7 @@ export default function Home() {
             src="/office-sign.jpg"
             alt="Law office sign at No. 197 Odili Road, Port Harcourt"
             width={720}
-            height={430}
+            height={418}
             sizes="(max-width: 900px) 100vw, 50vw"
           />
           <div>

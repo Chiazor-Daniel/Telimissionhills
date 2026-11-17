@@ -89,9 +89,12 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="wrap footer-base">
-        <span>© {new Date().getFullYear()} {firm.name}</span>
-        <a href={`mailto:${firm.email}`}>{firm.email}</a>
+      <div className="wrap">
+        <div className="footer-base">
+          <span>© {new Date().getFullYear()} {firm.name}</span>
+          <span>The information on this site is general and is not legal advice</span>
+          <a href={`mailto:${firm.email}`}>{firm.email}</a>
+        </div>
       </div>
     </footer>
   );

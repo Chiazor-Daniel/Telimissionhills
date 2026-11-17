@@ -26,7 +26,7 @@ export default function About() {
             src="/office-sign.jpg"
             alt="Law office sign at No. 197 Odili Road, Port Harcourt"
             width={720}
-            height={430}
+            height={418}
             sizes="(max-width: 900px) 100vw, 50vw"
           />
           <dl className="mission">
