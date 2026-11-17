@@ -29,8 +29,8 @@ export default function Home() {
         </div>
         <div className="wrap">
           <div className="hero-text rise">
-            <h1 className="display">Lawyers in Port Harcourt</h1>
-            <p className="lede">Property, family and business matters, from first advice to judgment.</p>
+            <h1 className="display">From first advice to judgment</h1>
+            <p className="lede">A Port Harcourt law firm for property, family and business matters.</p>
             <div className="actions">
               <Link href="/contact" className="btn btn-primary">Book a consultation</Link>
               <a href={`tel:${mainPhone.tel}`} className="btn btn-quiet">
